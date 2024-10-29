@@ -10,15 +10,33 @@
 [[social]]
 identifier = "github"
 name = "GitHub"
-url = "https://github.com/CaiJimmy/hugo-theme-stack"
+url = "https://github.com/MestreSales"
 
 [social.params]
 icon = "brand-github"
 
 [[social]]
-identifier = "twitter"
-name = "Twitter"
-url = "https://twitter.com"
+identifier = "linkedin"
+name = "Linked-In"
+url = "https://linkedin.com/in/davidsales7/"
 
 [social.params]
-icon = "brand-twitter"
+icon = "brand-linkedin"
+
+[[social]]
+identifier = "mail"
+name = "e-Mail"
+url = "mailto:website@davidsales.pt"
+
+[social.params]
+icon = "mail"
+
+
+[[social]]
+identifier = "spotify"
+name = "Spotify"
+url = "https://open.spotify.com/user/11150462511?si=dece4499671b416d"
+
+[social.params]
+icon = "brand-spotify"
+

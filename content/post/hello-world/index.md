@@ -1,20 +1,25 @@
 ---
-title: Hello World
-description: Welcome to Hugo Theme Stack
+title: My third attempt at a website
+description: Welcome to David's Corner on the Internet
 slug: hello-world
-date: 2022-03-06 00:00:00+0000
-image: cover.jpg
+date: 2024-10-29 00:00:00+0000
+image: wow-very-art.jpg
 categories:
-    - Example Category
+    - Website
 tags:
-    - Example Tag
+    - Hello world
+    - About the author
 weight: 1       # You can add weight to some posts to override the default sorting (date descending)
 ---
 
-Welcome to Hugo theme Stack. This is your first post. Edit or delete it, then start writing!
+Hi everyone, my name's David and this is my first post on the new website! I'll be updating it with whatever I want to share with the world. 
 
-For more information about this theme, check the documentation: https://stack.jimmycai.com/
+I'm sick of social media and the way the algorithms prioritize the "for you" concept, and I also don't want to feed it. I'm doing this to keep a public journal for myself and, if you want, you can tag along 🙂
 
-Want a site like this? Check out [hugo-theme-stack-stater](https://github.com/CaiJimmy/hugo-theme-stack-starter)
+**I want to bring back personal blogs like in the era before the social media boom!!!!!**
 
-> Photo by [Pawel Czerwinski](https://unsplash.com/@pawel_czerwinski) on [Unsplash](https://unsplash.com/)
+I'm employed within the computer science sphere, so I will also share my personal endeavors in that context. An overview of this website will soon follow.
+
+I will try to tag everything properly, it probably won't be perfect right away. Just know that you can also [e-mail me about anything](mailto:website@davidsales.pt)!
+
+This website will soon have a comments feature! I will work on it as fast as possible 🏃‍♂️💨
