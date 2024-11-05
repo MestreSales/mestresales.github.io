@@ -75,7 +75,7 @@ enabled = true
 
 ## Comments
 [comments]
-enabled = false
+enabled = true
 provider = "remark42"
 
 [comments.disqusjs]
@@ -91,9 +91,9 @@ issueTerm = "pathname"
 label = ""
 
 [comments.remark42]
-host = ""
-site = ""
-locale = ""
+host = "https://remark42.davidsales.pt/"
+site = "davidsales.pt"
+locale = "pt-pt"
 
 [comments.vssue]
 platform = ""

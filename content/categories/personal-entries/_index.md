@@ -1,6 +1,6 @@
 ---
 title: Personal Entries
-description: Anything related with the me, kind of like a diary, but to the open-world
+description: Anything related with me, kind of like a diary, but to the open-world
 image: wide.jpg
 
 # Badge style

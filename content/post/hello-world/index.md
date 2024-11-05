@@ -10,6 +10,7 @@ tags:
     - Hello world
     - About the author
 weight: 1       # You can add weight to some posts to override the default sorting (date descending)
+comments: true
 ---
 
 Hi everyone, my name's David and this is my first post on the new website! I'll be updating it with whatever I want to share with the world. 

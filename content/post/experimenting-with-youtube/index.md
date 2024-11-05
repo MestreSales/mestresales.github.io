@@ -21,6 +21,7 @@ links:
       image: brand-youtube.svg
 weight: 1
 toc: true
+comments: true
 ---
 
 **TL;DR**: Using Youtube, and this website as well, to try and expose myself more. Will try to transition to sharing on social media, as well. So, in the end, I can try to overcome at least a little bit of this fear.

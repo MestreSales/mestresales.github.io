@@ -25,8 +25,6 @@ menu:
         weight: 4
         params:
             icon: link
-
-comments: false
 ---
 
 Here are some useful links, stuff related to me or that I appreciate!
