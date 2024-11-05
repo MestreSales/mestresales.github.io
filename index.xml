@@ -1,0 +1,364 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>David Sales</title><link>https://davidsales.pt/</link><description>Recent content on David Sales</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Tue, 05 Nov 2024 00:34:00 +0000</lastBuildDate><atom:link href="https://davidsales.pt/index.xml" rel="self" type="application/rss+xml"/><item><title>Comments are live and cookies are freshly baked!</title><link>https://davidsales.pt/p/comments-are-live/</link><pubDate>Tue, 05 Nov 2024 00:34:00 +0000</pubDate><guid>https://davidsales.pt/p/comments-are-live/</guid><description>&lt;img src="https://davidsales.pt/p/comments-are-live/blabla-white.png" alt="Featured image of post Comments are live and cookies are freshly baked!" />&lt;h2 id="why-remark42">Why Remark42
+&lt;/h2>&lt;p>Because it is lightweight and privacy-focused. The theme that I am using for this website, Stack, built on Hugo Framework, provides a bunch of &lt;a class="link" href="https://stack.jimmycai.com/config/comments" target="_blank" rel="noopener"
+>comments integrations&lt;/a>. Remark42 was one of them. That was it, I wanted ease of integration and something non-invasive.&lt;/p>
+&lt;p>I considered using Cactus, because it uses &lt;a class="link" href="https://matrix.org/" target="_blank" rel="noopener"
+>Matrix&lt;/a> - highly recommend you check it out. But then, when I finally set everything up with the quick start, it didn&amp;rsquo;t look that good. Glad I explored it, though. this way I learned about the existence of Matrix&amp;hellip; Decentralised communication! Are you kidding me? That sounds awesome!&lt;/p>
+&lt;p>I digress, anyway, Remark42! It&amp;rsquo;s promissing, it has a bunch of neat features and integrations. The cookies that it stores are pretty low key, everything is hashed and ecrypted, and minimal information is used&amp;hellip; At least that is what they say&amp;hellip; But the code&amp;rsquo;s open-source, so you can &lt;a class="link" href="https://github.com/umputun/remark42" target="_blank" rel="noopener"
+>check it out&lt;/a>.&lt;/p>
+&lt;h2 id="initial-setup">Initial setup
+&lt;/h2>&lt;p>It is very easy to get it up-and-running, because with the Stack theme I didn&amp;rsquo;t even have to integrate the frontend. I&amp;rsquo;m not going to guide you through the same steps they have on their page. Needless to say that, if you are running the backend on a machine other than your pc, you might have to adapt your interpretation when it comes to referencing the host backend.&lt;/p>
+&lt;h3 id="backend">Backend
+&lt;/h3>&lt;p>I went with the docker solution, &lt;a class="link" href="https://remark42.com/docs/getting-started/installation/" target="_blank" rel="noopener"
+>find the steps here&lt;/a>. Because I am running this in my home server, I had to expose a port on the configuration, and kept it simple with only the anonymmous authentication on, example of the &lt;code>docker-compose.yml&lt;/code>:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;span class="lnt">24
+&lt;/span>&lt;span class="lnt">25
+&lt;/span>&lt;span class="lnt">26
+&lt;/span>&lt;span class="lnt">27
+&lt;/span>&lt;span class="lnt">28
+&lt;/span>&lt;span class="lnt">29
+&lt;/span>&lt;span class="lnt">30
+&lt;/span>&lt;span class="lnt">31
+&lt;/span>&lt;span class="lnt">32
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">version&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;2&amp;#34;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">services&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">remark&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="c"># remove the next line in case you want to use this Docker Compose file separately&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="c"># as otherwise it would complain for absence of Dockerfile&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">build&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">.&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">image&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">umputun/remark42:latest&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">container_name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;remark42&amp;#34;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">hostname&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;remark42&amp;#34;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">restart&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">always&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">logging&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">driver&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">json-file&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">options&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">max-size&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;10m&amp;#34;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">max-file&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;5&amp;#34;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="c"># uncomment to expose directly (no proxy)&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">ports&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="s2">&amp;#34;5005:8080&amp;#34;&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c"># host:container&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">environment&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">REMARK_URL=http://127.0.0.1&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c"># localhost&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">SITE=davidsales.pt&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c"># you can set any value here&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">SECRET=abcd12345&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c"># make sure to set a strong secret for the JWT tokens&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">ALLOWED_HOSTS=http://localhost:1313&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="c"># available client auth&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="c"># -&amp;gt; anon&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">AUTH_ANON=true&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">volumes&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">./var:/srv/var&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>As you can see, there are still some comments from their example yaml file. You don&amp;rsquo;t really need to set &lt;code>ALLOWED_HOSTS&lt;/code> at this point, but if you do, make sure to set it as the website&amp;rsquo;s url where you&amp;rsquo;re embedding remark42 (the hugo cli launches the local website on port 1313). This var will later on be important, to add an &lt;strong>extra layer of security&lt;/strong>, as it will &lt;strong>only allow embedding on the websites defined there&lt;/strong> (you can set multiple, comma-separated, values).&lt;/p>
+&lt;p>You should be able to access the demo by typing &lt;code>http://127.0.0.1:5005/web/&lt;/code>. Here&amp;rsquo;s an example from my page:
+&lt;img src="https://davidsales.pt/p/comments-are-live/remark42demo.png"
+width="866"
+height="769"
+srcset="https://davidsales.pt/p/comments-are-live/remark42demo_hu3400476947719862153.png 480w, https://davidsales.pt/p/comments-are-live/remark42demo_hu13542575199972452913.png 1024w"
+loading="lazy"
+alt="remark42demo"
+class="gallery-image"
+data-flex-grow="112"
+data-flex-basis="270px"
+>&lt;/p>
+&lt;h3 id="frontend">Frontend
+&lt;/h3>&lt;p>As I mentioned previously, I am using a theme from the Hugo Framework which allows me to easily embbed remark42. So I only had to change the &lt;code>params.toml&lt;/code> to enable commenting, and also match the backend configuration:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-toml" data-lang="toml">&lt;span class="line">&lt;span class="cl">&lt;span class="p">[&lt;/span>&lt;span class="nx">comments&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nx">enabled&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="kc">true&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nx">provider&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;remark42&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">(&lt;/span>&lt;span class="p">...&lt;/span>&lt;span class="err">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">[&lt;/span>&lt;span class="nx">comments&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">remark42&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nx">host&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;http://127.0.0.1:5005&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nx">site&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;davidsales.pt&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nx">locale&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;pt-pt&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>I was running Remark42&amp;rsquo;s backend on another machine, so I actually changed the host to that machine&amp;rsquo;s ip plus the 5005 port. Actually, we&amp;rsquo;ll get into that next.&lt;/p>
+&lt;h2 id="that-was-it--not-quite">That was it! &amp;hellip; Not quite
+&lt;/h2>&lt;p>Of course that wasn&amp;rsquo;t everything that we needed to do to have it fully working, we still need to somehow be able to connect to the backend, when loading our website (this case davidsales.pt). But, after you setup external access, you can just explore the other wonderful features that Remark42 has, such as: administration, user authentication with multiple providers, notifications, &amp;hellip;&lt;/p>
+&lt;h2 id="setup-external-access-to-the-backend">Setup external access to the backend
+&lt;/h2>&lt;p>This part is totally up to you. We need to somehow be able to access this from the WWW, and I am just going to tell you what I did.&lt;/p>
+&lt;p>I have a machine with Apache2 serving as a reverse proxy, the connections are forwarded to it and it routes them to the appropriate place. I have setup certificates with certbot on this machine, for my domain. And I created a subdomain to accommodate this backend. If you check this page&amp;rsquo;s configuration, you might find the link &lt;code>https://remark42.davidsales.pt&lt;/code> somewhere. And you should only be able to access some pages (hopefully 😆).&lt;/p>
+&lt;p>I&amp;rsquo;m not going into detail about this, as it will increase this post&amp;rsquo;s size by a lot. Comment below or e-mail me if you&amp;rsquo;d like to know how I set all this networking part out.&lt;/p>
+&lt;p>With this last paragraph you can already assume that I am reverse proxying requests from my subdomain to the local container directly, and that the connection is secured (as it uses HTTPS). Just make sure anyone on the internet can access:&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>/web/privacy.html&lt;/code>, as it contains the privacy statement&lt;/li>
+&lt;li>&lt;code>/web/markdown-help.html&lt;/code>, that helps users with markdown&lt;/li>
+&lt;li>&lt;code>/web/iframe.html&lt;/code>, that actually lets you embbed remark42 in the website&lt;/li>
+&lt;li>Any &lt;code>css&lt;/code>, &lt;code>svg&lt;/code> or &lt;code>jpeg&lt;/code> file under &lt;code>/web/&lt;/code>&lt;/li>
+&lt;li>As well as everything under &lt;code>/auth&lt;/code> and &lt;code>/api&lt;/code>, to allow for requests to the backend
+I think you can lock the rest!&lt;/li>
+&lt;/ul>
+&lt;p>Now, &lt;strong>don&amp;rsquo;t forget to set the secret environment variable&lt;/strong> if you haven&amp;rsquo;t, on the backend. Use some online service if you have to generate it, &lt;a class="link" href="https://jwtsecret.com/generate" target="_blank" rel="noopener"
+>example&lt;/a>.&lt;/p>
+&lt;p>After you can access it externally, make sure to change the &lt;code>REMARK_URL&lt;/code> on the backend config to the frontfacing url, and from the frontend that is embbedding it as well. In my case it was &lt;code>https://remark42.davidsales.pt&lt;/code>.&lt;/p>
+&lt;h2 id="fun-part-begins-customizing-it">Fun part begins: Customizing it!
+&lt;/h2>&lt;p>Now you can setup anything you want, that remark42 provides. I just setup Github, Google and Microsoft. Anonymmous authentication was already setup from the beginning. Here&amp;rsquo;s an example of what my yaml file looks like at this point:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;span class="lnt">24
+&lt;/span>&lt;span class="lnt">25
+&lt;/span>&lt;span class="lnt">26
+&lt;/span>&lt;span class="lnt">27
+&lt;/span>&lt;span class="lnt">28
+&lt;/span>&lt;span class="lnt">29
+&lt;/span>&lt;span class="lnt">30
+&lt;/span>&lt;span class="lnt">31
+&lt;/span>&lt;span class="lnt">32
+&lt;/span>&lt;span class="lnt">33
+&lt;/span>&lt;span class="lnt">34
+&lt;/span>&lt;span class="lnt">35
+&lt;/span>&lt;span class="lnt">36
+&lt;/span>&lt;span class="lnt">37
+&lt;/span>&lt;span class="lnt">38
+&lt;/span>&lt;span class="lnt">39
+&lt;/span>&lt;span class="lnt">40
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">version&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;2&amp;#34;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">services&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">remark&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">build&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">.&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">image&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">umputun/remark42:latest&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">container_name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;remark42&amp;#34;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">hostname&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;remark42&amp;#34;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">restart&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">always&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">logging&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">driver&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">json-file&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">options&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">max-size&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;10m&amp;#34;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">max-file&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;5&amp;#34;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">ports&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="s2">&amp;#34;5005:8080&amp;#34;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">environment&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">REMARK_URL=https://remark42.davidsales.pt&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">SECRET=[redacted]&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">SITE=davidsales.pt&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">ALLOWED_HOSTS=https://remark42.davidsales.pt,https://davidsales.pt,http://localhost:1313&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">ADMIN_SHARED_ID=[redacted]&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">ADMIN_SHARED_EMAIL=[redacted]&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="c"># available client auth&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="c"># -&amp;gt; anon&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">AUTH_ANON=true&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="c"># -&amp;gt; github&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">AUTH_GITHUB_CID=[redacted]&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">AUTH_GITHUB_CSEC=[redacted]&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="c"># -&amp;gt; google&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">AUTH_GOOGLE_CID=[redacted]&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">AUTH_GOOGLE_CSEC=[redacted]&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="c"># -&amp;gt; Microsoft&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">AUTH_MICROSOFT_CID=[redacted]&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">AUTH_MICROSOFT_CSEC=[redacted]&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">volumes&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">./var:/srv/var&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Once you&amp;rsquo;re ready, you can start thinking about publishing this. But before that, I think you should really consider to at least try being GDPR compliant. I don&amp;rsquo;t know if I fully am, but I tried by adding a cookie consent modal thingy 😆&lt;/p>
+&lt;h2 id="cookie-consent-modal">Cookie Consent modal
+&lt;/h2>&lt;p>If you search for some integration in Hugo, you might find &lt;a class="link" href="https://hugocodex.org/add-ons/cookie-consent/" target="_blank" rel="noopener"
+>this one&lt;/a>. It&amp;rsquo;s okay, but to be honest it looked ugly. So I searched a little bit more and &lt;a class="link" href="https://cookieconsent.orestbida.com/" target="_blank" rel="noopener"
+>stumbled upon this one&lt;/a>, doesn&amp;rsquo;t it look clean?&lt;/p>
+&lt;p>It is very simple to set up, it took a little elbow grease to properly set everything, but it was really easy to integrate with the theme I am using, even though it is not officially supported! I might contribute to stack with this addition 😊 This framework is really cool!&lt;/p>
+&lt;h3 id="setup-the-consent-modal">Setup the consent modal
+&lt;/h3>&lt;p>I &lt;a class="link" href="https://cookieconsent.orestbida.com/essential/getting-started.html" target="_blank" rel="noopener"
+>followed the steps here&lt;/a> went with the CDN hosted version, as it seemed like the simplest one. To actually add it to the pages, and here comes the easibility of using Stack and Hugo, I just created the files that I had to overwrite, and changed where I wanted. It&amp;rsquo;s that simple, anything that you don&amp;rsquo;t explicitly add to the theme, will be loaded from it&amp;rsquo;s defaults. To be fair, I don&amp;rsquo;t know if this is Hugo&amp;rsquo;s feature or Stack&amp;rsquo;s, but it is certainly a bit of both.&lt;/p>
+&lt;p>We have to add the:&lt;/p>
+&lt;ul>
+&lt;li>Stylesheet
+&lt;ul>
+&lt;li>I created &lt;code>/layouts/partials/head/custom.html&lt;/code> and just added the link tag needed&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Modal information setup on a script
+&lt;ul>
+&lt;li>I created &lt;code>/static/js/cookieconsent-config.js&lt;/code> with my configuration, which is just text with the information I want to display there
+&lt;ul>
+&lt;li>You can find an example on the steps that I linked in this section&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Script tag for the modal (to display it)
+&lt;ul>
+&lt;li>As I wanted it to be in the footer, I created &lt;code>/layouts/partials/footer/custom.html&lt;/code> and added the script tag needed
+&lt;ul>
+&lt;li>Referencing it in the &lt;code>src&lt;/code> attribute with &lt;code>{{ .Site.BaseURL }}js/cookieconsent-config.js&lt;/code>, because this is how we can reference the contents of the static folder&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>I also wanted to change it&amp;rsquo;s style to match the theme toggle that Stack has, so I copied the &lt;code>/ts/colorScheme.ts&lt;/code> from &lt;a class="link" href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener"
+>Stack&amp;rsquo;s github&lt;/a>, and changed it accordingly. &lt;a class="link" href="https://cookieconsent.orestbida.com/advanced/ui-customization.html#color-schemes" target="_blank" rel="noopener"
+>CookieConsent mentions how we can toggle the dark theme&lt;/a>, so I just added the respective lines on the code that toggles the theme, and retrieved the cookie that stores the theme preference on startup (so the correct theme is applied when it is loaded). &lt;a class="link" href="https://github.com/MestreSales/mestresales.github.io/blob/master/assets/ts/colorScheme.ts" target="_blank" rel="noopener"
+>You can check the file on the repo of this website&lt;/a> if you are interested.&lt;/p>
+&lt;p>Apart from all of these changes to accomodate the cookie consent on my site, I wasn&amp;rsquo;t fully comfortable yet with the privacy policy not being linked anywhere. So I also copied the full footer file to be able to edit it, to &lt;code>/layouts/partials/footer/footer.html&lt;/code> and added a link to the privacy policy.&lt;/p>
+&lt;p>Here&amp;rsquo;s how it ended up looking. Neat, right?&lt;/p>
+&lt;p>&lt;img src="https://davidsales.pt/p/comments-are-live/cookieconsent-small-light.png"
+width="234"
+height="261"
+srcset="https://davidsales.pt/p/comments-are-live/cookieconsent-small-light_hu1221945824667430828.png 480w, https://davidsales.pt/p/comments-are-live/cookieconsent-small-light_hu13791723251859684383.png 1024w"
+loading="lazy"
+alt="Modal minimized - light"
+class="gallery-image"
+data-flex-grow="89"
+data-flex-basis="215px"
+> &lt;img src="https://davidsales.pt/p/comments-are-live/cookieconsent-small-dark.png"
+width="235"
+height="264"
+srcset="https://davidsales.pt/p/comments-are-live/cookieconsent-small-dark_hu7515458086097760575.png 480w, https://davidsales.pt/p/comments-are-live/cookieconsent-small-dark_hu843765778971592455.png 1024w"
+loading="lazy"
+alt="Modal minimized - dark"
+class="gallery-image"
+data-flex-grow="89"
+data-flex-basis="213px"
+>&lt;/p>
+&lt;p>&lt;img src="https://davidsales.pt/p/comments-are-live/cookieconsent-large-light.png"
+width="685"
+height="595"
+srcset="https://davidsales.pt/p/comments-are-live/cookieconsent-large-light_hu15536969106442118458.png 480w, https://davidsales.pt/p/comments-are-live/cookieconsent-large-light_hu2916198062528755518.png 1024w"
+loading="lazy"
+alt="Modal maximized - light"
+class="gallery-image"
+data-flex-grow="115"
+data-flex-basis="276px"
+> &lt;img src="https://davidsales.pt/p/comments-are-live/cookieconsent-large-dark.png"
+width="685"
+height="598"
+srcset="https://davidsales.pt/p/comments-are-live/cookieconsent-large-dark_hu9357987203438974318.png 480w, https://davidsales.pt/p/comments-are-live/cookieconsent-large-dark_hu5353851615542007893.png 1024w"
+loading="lazy"
+alt="Modal maximized - dark"
+class="gallery-image"
+data-flex-grow="114"
+data-flex-basis="274px"
+>&lt;/p>
+&lt;h2 id="quirks">Quirks
+&lt;/h2>&lt;h3 id="remark42-deleteme">Remark42 deleteme
+&lt;/h3>&lt;p>This works from the standpoint of the user. If they want to delete all their user data, they can click on themselves, after signing in, and click on the respective button. It&amp;rsquo;ll open a new tab to send an e-mail, but the URL linked isn&amp;rsquo;t the proper one. So the admin can&amp;rsquo;t really process the request with one click. Instead:&lt;/p>
+&lt;ul>
+&lt;li>They have to copy the token id generated&lt;/li>
+&lt;li>They have to be signed in with their admin account&lt;/li>
+&lt;li>Make a proper GET &lt;code>/api/v1/admin/deleteme?token={token}&lt;/code>&lt;/li>
+&lt;li>Replace the &lt;code>{token}&lt;/code> with the one from the email&lt;/li>
+&lt;li>Add the headers according to their session cookies
+&lt;ul>
+&lt;li>&lt;code>X-XSRF-TOKEN: {XSRF-TOKEN}&lt;/code>&lt;/li>
+&lt;li>&lt;code>Cookie: JWT-{JWT}&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Make the request&lt;/li>
+&lt;/ul>
+&lt;h3 id="remark42-to-match-the-theme">Remark42 to match the theme
+&lt;/h3>&lt;p>This is done by default, as Stack officially supports Remark42. But I find that the sorting box text is not that readable when the theme is Dark. I have had some trouble in trying to change it, and gave up.&lt;/p>
+&lt;h2 id="final-words">Final words
+&lt;/h2>&lt;p>This was quite a lot of work, mostly in the networking + security part, because I want to have something reliable. The rest was quite straightforward, there were just a lot of new concepts and things to explore. Was a really fun thing to investigate, and it opened some new doors. Leave a comment letting me now what you thought, or send me an e-mail!&lt;/p></description></item><item><title>Experimenting with Youtube</title><link>https://davidsales.pt/p/experimenting-with-youtube/</link><pubDate>Tue, 29 Oct 2024 00:00:00 +0000</pubDate><guid>https://davidsales.pt/p/experimenting-with-youtube/</guid><description>&lt;img src="https://davidsales.pt/p/experimenting-with-youtube/wow-very-deep.jpg" alt="Featured image of post Experimenting with Youtube" />&lt;p>&lt;strong>TL;DR&lt;/strong>: Using Youtube, and this website as well, to try and expose myself more. Will try to transition to sharing on social media, as well. So, in the end, I can try to overcome at least a little bit of this fear.
+You can find a link to my channel at the end of this post.&lt;/p>
+&lt;h2 id="yikes-i-have-audhd">Yikes, I have AuDHD
+&lt;/h2>&lt;p>Yeap, I have a mix of the two. Got a late diagnosis and I am finding things about myself everyday. I don&amp;rsquo;t want to go to such depths, I just wanted to share this with you, and to make a little more sense of the &amp;ldquo;anxiety of being perceived&amp;rdquo; part.&lt;/p>
+&lt;p>Here&amp;rsquo;s a fart sound to cut the seriousness&lt;/p>
+&lt;div class="video-wrapper">
+&lt;iframe loading="lazy"
+src="https://www.youtube.com/embed/Q_9VMaX61nI"
+allowfullscreen
+title="YouTube Video"
+>
+&lt;/iframe>
+&lt;/div>
+&lt;h2 id="why-youtube">Why youtube
+&lt;/h2>&lt;p>Well, it&amp;rsquo;s the least friction path to me, or at least it feels that way. I&amp;rsquo;m going to be posting there, and only sharing it here. This way, I&amp;rsquo;m consciously exposing myself without explicitly sharing with people that know me/perceive me on a daily basis.&lt;/p>
+&lt;p>That is, without sharing it on other places. When I start to feel comfortable enough, I will start being &amp;ldquo;louder&amp;rdquo; with sharing this. Perhaps posting on my other social media&amp;hellip; It might not seem like a lot, but I am already feeling a tad anxious about posting all of this (as of now I haven&amp;rsquo;t posted this website yet).&lt;/p>
+&lt;p>&lt;strong>big sidetrack&lt;/strong>: I was going to put the &amp;ldquo;it&amp;rsquo;s not much, but it&amp;rsquo;s honest work&amp;rdquo; meme, because of the reference on the last paragraph&amp;hellip; But I just found out &lt;a class="link" href="https://www.wsaz.com/2023/05/24/farmer-behind-viral-it-aint-much-its-honest-work-meme-dies-crash/?ref=okdoomer.io" target="_blank" rel="noopener"
+>he died&lt;/a>, what the actual fuck, I&amp;rsquo;m shook&amp;hellip; R.I.P.&lt;/p>
+&lt;h3 id="my-first-video">My first video
+&lt;/h3>&lt;p>The first full-song that I properly learned on bass. Well, proper is a stretch, it isn&amp;rsquo;t perfect, I still can&amp;rsquo;t land the last harmonic. It&amp;rsquo;s one of my favourite songs by Jaco Pastorius, I can get into that on another post. But here it is.&lt;/p>
+&lt;div class="video-wrapper">
+&lt;iframe loading="lazy"
+src="https://www.youtube.com/embed/a40Co8DKsUI"
+allowfullscreen
+title="YouTube Video"
+>
+&lt;/iframe>
+&lt;/div>
+&lt;h2 id="wrapping-it-up">Wrapping it up
+&lt;/h2>&lt;p>Weird sidetrack, still shook. Anyway, expect music-related stuff, because that is one of my hobbies. I play guitar and bass, and am attempting to arrange a setup to start to learn how to play drums.
+This website, in a way, is also a way of exposing myself, and trying to conquer this fear. If you have anything you want so say, please let me know, I would love to read your thoughts 🙂&lt;/p></description></item><item><title>My third attempt at a website</title><link>https://davidsales.pt/p/hello-world/</link><pubDate>Tue, 29 Oct 2024 00:00:00 +0000</pubDate><guid>https://davidsales.pt/p/hello-world/</guid><description>&lt;img src="https://davidsales.pt/p/hello-world/wow-very-art.jpg" alt="Featured image of post My third attempt at a website" />&lt;p>Hi everyone, my name&amp;rsquo;s David and this is my first post on the new website! I&amp;rsquo;ll be updating it with whatever I want to share with the world.&lt;/p>
+&lt;p>I&amp;rsquo;m sick of social media and the way the algorithms prioritize the &amp;ldquo;for you&amp;rdquo; concept, and I also don&amp;rsquo;t want to feed it. I&amp;rsquo;m doing this to keep a public journal for myself and, if you want, you can tag along 🙂&lt;/p>
+&lt;p>&lt;strong>I want to bring back personal blogs like in the era before the social media boom!!!!!&lt;/strong>&lt;/p>
+&lt;p>I&amp;rsquo;m employed within the computer science sphere, so I will also share my personal endeavors in that context. An overview of this website will soon follow.&lt;/p>
+&lt;p>I will try to tag everything properly, it probably won&amp;rsquo;t be perfect right away. Just know that you can also &lt;a class="link" href="mailto:website@davidsales.pt" >e-mail me about anything&lt;/a>!&lt;/p>
+&lt;p>This website will soon have a comments feature! I will work on it as fast as possible 🏃‍♂️💨&lt;/p></description></item><item><title>Archives</title><link>https://davidsales.pt/archives/</link><pubDate>Sun, 06 Mar 2022 00:00:00 +0000</pubDate><guid>https://davidsales.pt/archives/</guid><description/></item><item><title>Links</title><link>https://davidsales.pt/links/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://davidsales.pt/links/</guid><description>&lt;p>Here are some useful links, stuff related to me or that I appreciate!&lt;/p>
+&lt;p>p.s. ~ As soon as I get my hands on Scalabit&amp;rsquo;s logo, I will update it!&lt;/p></description></item><item><title>Search</title><link>https://davidsales.pt/search/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://davidsales.pt/search/</guid><description/></item></channel></rss>
