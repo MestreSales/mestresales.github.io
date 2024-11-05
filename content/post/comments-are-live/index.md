@@ -2,7 +2,7 @@
 title: Comments are live and cookies are freshly baked!
 description: Using Remark42 to enable comments on this website
 slug: comments-are-live
-date: 2024-11-05 00:00:00+0000
+date: 2024-11-05 00:34:00+0000
 image: blabla-white.png
 categories:
     - Website
@@ -116,7 +116,13 @@ I have a machine with Apache2 serving as a reverse proxy, the connections are fo
 
 I'm not going into detail about this, as it will increase this post's size by a lot. Comment below or e-mail me if you'd like to know how I set all this networking part out.
 
-With this last paragraph you can already assume that I am reverse proxying requests from my subdomain to the local container directly, and that the connection is secured (as it uses HTTPS). Just make sure anyone on the internet can access the endpoint `/web/privacy.html`, as it contains the privacy statement, as well as everything under `/auth` and `/api`. I think you can lock the rest!
+With this last paragraph you can already assume that I am reverse proxying requests from my subdomain to the local container directly, and that the connection is secured (as it uses HTTPS). Just make sure anyone on the internet can access:
+- `/web/privacy.html`, as it contains the privacy statement
+- `/web/markdown-help.html`, that helps users with markdown
+- `/web/iframe.html`, that actually lets you embbed remark42 in the website
+- Any `css`, `svg` or `jpeg` file under `/web/`
+- As well as everything under `/auth` and `/api`, to allow for requests to the backend
+I think you can lock the rest!
 
 Now, **don't forget to set the secret environment variable** if you haven't, on the backend. Use some online service if you have to generate it, [example](https://jwtsecret.com/generate).
 
